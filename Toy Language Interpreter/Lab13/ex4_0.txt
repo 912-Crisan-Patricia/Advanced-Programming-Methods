@@ -1,0 +1,445 @@
+
+Before
+{	ID: 3
+	-ExeStack-
+string varf;varf=test.in;openRFile(varf);int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+string varf;
+varf=test.in;openRFile(varf);int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+string varf;
+varf=test.in;openRFile(varf);int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+varf=test.in;openRFile(varf);int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> 
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+varf=test.in;openRFile(varf);int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> 
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+varf=test.in;
+openRFile(varf);int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> 
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+varf=test.in;
+openRFile(varf);int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> 
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+openRFile(varf);int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+openRFile(varf);int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+openRFile(varf);
+int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+openRFile(varf);
+int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+int varc;readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+int varc;
+readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+int varc;
+readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 0
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+readFile(varf, varc);print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 0
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+readFile(varf, varc);
+print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 0
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+readFile(varf, varc);
+print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 0
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 4
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+print(varc);readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 4
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+print(varc);
+readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 4
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+print(varc);
+readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 4
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+
+}
+
+After
+{	ID: 3
+	-ExeStack-
+readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 4
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+4
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+readFile(varf, varc);print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 4
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+4
+}
+
+After
+{	ID: 3
+	-ExeStack-
+readFile(varf, varc);
+print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 4
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+4
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+readFile(varf, varc);
+print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 4
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+4
+}
+
+After
+{	ID: 3
+	-ExeStack-
+print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 5
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+4
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+print(varc);closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 5
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+4
+}
+
+After
+{	ID: 3
+	-ExeStack-
+print(varc);
+closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 5
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+4
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+print(varc);
+closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 5
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+4
+}
+
+After
+{	ID: 3
+	-ExeStack-
+closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 5
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+4,5
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 3
+	-ExeStack-
+closeRFile(varf);
+	-SymTable-
+varf -> test.in
+varc -> 5
+	-FileTable-
+test.in -> java.io.BufferedReader@c2e1f26
+	-Out-
+4,5
+}
+
+After
+{	ID: 3
+	-SymTable-
+varf -> test.in
+varc -> 5
+	-Out-
+4,5
+}
+
+----------------------------------------------------------------------------------------------------

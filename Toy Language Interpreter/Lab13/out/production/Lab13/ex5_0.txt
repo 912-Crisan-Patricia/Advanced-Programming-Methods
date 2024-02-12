@@ -1,0 +1,352 @@
+
+Before
+{	ID: 4
+	-ExeStack-
+int a;int b;int v;a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+int a;
+int b;int v;a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+int a;
+int b;int v;a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+int b;int v;a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+int b;int v;a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+int b;
+int v;a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+int b;
+int v;a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+int v;a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+b -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+int v;a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+b -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+int v;
+a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+b -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+int v;
+a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+b -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+b -> 0
+v -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+a=2;b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+b -> 0
+v -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+a=2;
+b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+b -> 0
+v -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+a=2;
+b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 0
+b -> 0
+v -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 2
+b -> 0
+v -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+b=2;IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 2
+b -> 0
+v -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+b=2;
+IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 2
+b -> 0
+v -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+b=2;
+IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 2
+b -> 0
+v -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 2
+b -> 2
+v -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+IF(a != b) THEN(v=2;)ELSE(v=3;);print(v);
+	-SymTable-
+a -> 2
+b -> 2
+v -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+IF(a != b) THEN(v=2;)ELSE(v=3;);
+print(v);
+	-SymTable-
+a -> 2
+b -> 2
+v -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+IF(a != b) THEN(v=2;)ELSE(v=3;);
+print(v);
+	-SymTable-
+a -> 2
+b -> 2
+v -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+v=3;
+print(v);
+	-SymTable-
+a -> 2
+b -> 2
+v -> 0
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+v=3;
+print(v);
+	-SymTable-
+a -> 2
+b -> 2
+v -> 0
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-ExeStack-
+print(v);
+	-SymTable-
+a -> 2
+b -> 2
+v -> 3
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 4
+	-ExeStack-
+print(v);
+	-SymTable-
+a -> 2
+b -> 2
+v -> 3
+	-Out-
+
+}
+
+After
+{	ID: 4
+	-SymTable-
+a -> 2
+b -> 2
+v -> 3
+	-Out-
+3
+}
+
+----------------------------------------------------------------------------------------------------

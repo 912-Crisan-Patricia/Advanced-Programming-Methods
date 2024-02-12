@@ -1,0 +1,839 @@
+
+Before
+{	ID: 6
+	-ExeStack-
+Ref(int) v;new(v, 0);int a;a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+Ref(int) v;
+new(v, 0);int a;a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+Ref(int) v;
+new(v, 0);int a;a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+new(v, 0);int a;a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-SymTable-
+v -> (0, int)
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+new(v, 0);int a;a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-SymTable-
+v -> (0, int)
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+new(v, 0);
+int a;a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-SymTable-
+v -> (0, int)
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+new(v, 0);
+int a;a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-SymTable-
+v -> (0, int)
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+int a;a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+v -> (1, int)
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+int a;a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+v -> (1, int)
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+int a;
+a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+v -> (1, int)
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+int a;
+a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+v -> (1, int)
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 0
+v -> (1, int)
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+a=3;while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 0
+v -> (1, int)
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+a=3;
+while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 0
+v -> (1, int)
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+a=3;
+while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 0
+v -> (1, int)
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+while(a > 0) print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+print(rH(v));a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+print(rH(v));a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+print(rH(v));
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+print(rH(v));
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+
+}
+
+After
+{	ID: 6
+	-ExeStack-
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+0
+}
+
+After
+{	ID: 6
+	-ExeStack-
+a=a - 1;
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+a=a - 1;
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 3
+v -> (1, int)
+	-Out-
+0
+}
+
+After
+{	ID: 6
+	-ExeStack-
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0
+}
+
+After
+{	ID: 6
+	-ExeStack-
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0,2
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0,2
+}
+
+After
+{	ID: 6
+	-ExeStack-
+print(rH(v));a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0,2
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+print(rH(v));a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0,2
+}
+
+After
+{	ID: 6
+	-ExeStack-
+print(rH(v));
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0,2
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+print(rH(v));
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0,2
+}
+
+After
+{	ID: 6
+	-ExeStack-
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0,2,0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0,2,0
+}
+
+After
+{	ID: 6
+	-ExeStack-
+a=a - 1;
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0,2,0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+a=a - 1;
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 2
+v -> (1, int)
+	-Out-
+0,2,0
+}
+
+After
+{	ID: 6
+	-ExeStack-
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0
+}
+
+After
+{	ID: 6
+	-ExeStack-
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0,1
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0,1
+}
+
+After
+{	ID: 6
+	-ExeStack-
+print(rH(v));a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0,1
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+print(rH(v));a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0,1
+}
+
+After
+{	ID: 6
+	-ExeStack-
+print(rH(v));
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0,1
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+print(rH(v));
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0,1
+}
+
+After
+{	ID: 6
+	-ExeStack-
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0,1,0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+a=a - 1;print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0,1,0
+}
+
+After
+{	ID: 6
+	-ExeStack-
+a=a - 1;
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0,1,0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+a=a - 1;
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 1
+v -> (1, int)
+	-Out-
+0,2,0,1,0
+}
+
+After
+{	ID: 6
+	-ExeStack-
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 0
+v -> (1, int)
+	-Out-
+0,2,0,1,0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+print(a);
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 0
+v -> (1, int)
+	-Out-
+0,2,0,1,0
+}
+
+After
+{	ID: 6
+	-ExeStack-
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 0
+v -> (1, int)
+	-Out-
+0,2,0,1,0,0
+}
+
+----------------------------------------------------------------------------------------------------
+
+Before
+{	ID: 6
+	-ExeStack-
+while(a > 0) 
+print(rH(v));a=a - 1;print(a);
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 0
+v -> (1, int)
+	-Out-
+0,2,0,1,0,0
+}
+
+After
+{	ID: 6
+	-Heap-
+1 -> 0
+	-SymTable-
+a -> 0
+v -> (1, int)
+	-Out-
+0,2,0,1,0,0
+}
+
+----------------------------------------------------------------------------------------------------
